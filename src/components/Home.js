@@ -1,21 +1,30 @@
-import React from "react"
+import React, {useState} from "react"
 import Navbar from "./Navbar"
-import styles from "../index.css"
+import AuthModal from './AuthModal.js'
+//import styles from "../index.css"
 const Home = ()=>{
 
     const authToken = false
+    const [showModal, setShowModal] = useState(false)
 
     const handleClick=()=>{
         console.log("button is clicked")
+        setShowModal(true)
     }
     return(
         <>
-        <Navbar/>
+        <div className="overlay">
+        <Navbar authToken={authToken} setShowModal={setShowModal} showModal={showModal}/>
         <div className="home">
             <h1>Share Love</h1>
             <button className="primary-button" onClick={handleClick}>
                 {authToken ? "signout":"Create Account"}
             </button>
+
+            {showModal&&(
+                <AuthModal setShowModal={setShowModal}/>
+            )}
+        </div>
         </div>
         </>
     )
