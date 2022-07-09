@@ -4,6 +4,7 @@
 html, body{
     margin:0;
     padding:0;
+    text-align:center;
 }
 
 *{
@@ -19,13 +20,30 @@ html, body{
     border:none;
     background: linear-gradient(45deg, #30b6fe, #40ffd9);
 }
+.primary-title{
+    font-size: 50px;
+    color:#fff;
+}
 
 .primary-button:hover{
     background: linear-gradient(260deg, #30b6fe, #40ffd9);
 }
 
-body{
-    text-align:center;
+.secondary-button{
+    color:#717172;
+    background-color: #fff;
+    font-weight: 500px;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: solid 2px #717172;
+    margin: 6px;
+}
+
+.secondary-button:hover{
+    color:#4e4e50;
+    background:linear-gradient(45deg, #30b6fe, #40ffd9);
 }
 
 /*=============== Styling for Navbar======================= */
@@ -51,12 +69,12 @@ nav .nav-button:disabled{
 }
 
 nav .logo-container{
-    width:170px;
+    width:150px;
     margin: 15px;
 }
 
 nav .logo-container .logo{
-    height: 60px;
+    height: 40px;
     width: 100%;
 }
 
@@ -73,18 +91,36 @@ nav .logo-container .logo{
     )
 }
 
+.home{
+    margin-top:30vh;
+}
+
 /* =========Auth-modal-==================== */
 .auth-modal{
-    position: relative;
-    top:20px;
+    position: absolute;
+    left:0;
+    right:0;
+    top:100px;
     margin-left:auto;
     margin-right:auto;
     max-width: 360px;
-    height: 350px;
+    height: 500px;
     background-color: #fff;
     border-radius: 10px;
     padding: 40px;
 }
 .auth-modal .close-icon{
     float: right;
+}
+
+.auth-modal form{
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-modal input[type=password],
+.auth-modal input[type=email]{
+    padding: 8px;
+    margin:8px;
+    font-size: 17px;
 }

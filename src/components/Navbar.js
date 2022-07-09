@@ -2,9 +2,10 @@ import React from 'react'
 import logo from '../logo.png'
 //import styles from '../index.css'
 
-const Navbar = ({authToken, setShowModal, showModal})=>{
+const Navbar = ({authToken, setShowModal, showModal, setIsSignUp})=>{
 
     const handleClick=()=>{
+        setIsSignUp(false)
         setShowModal(true)
     }
 
