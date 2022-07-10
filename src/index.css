@@ -124,3 +124,199 @@ nav .logo-container .logo{
     margin:8px;
     font-size: 17px;
 }
+
+
+/* =========Onboarding Page=============== */
+.Onboarding form{
+    display: flex;
+    justify-content: center;
+}
+
+.Onboarding form section{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 35%;
+    text-align: start;
+}
+
+.Onboarding form input{
+    padding: 15px 30px;
+    margin:10px 0;
+    font-size: 15px;
+    border: solid 2px #919da5;
+    border-radius: 10px;
+}
+
+.Onboarding form input::-webkit-outer-spin-button,
+.Onboarding form input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin:0
+}
+
+.Onboarding form label{
+    margin: 10px 0;
+}
+
+.Onboarding form .multiple-input-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.Onboarding form .multiple-input-container input{
+    margin-right: 10px;
+}
+
+.Onboarding form .multiple-input-container label{
+    padding:10px;
+    border: solid 2px #919da5;
+    border-radius: 10px;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+.Onboarding form input[type="number"]{
+    width:10%;
+}
+
+.Onboarding form input[type="radio"]{
+    display: none;
+}
+.Onboarding form input[type="radio"]:checked+label{
+    border: solid 2px #30b6fe;
+}
+
+.Onboarding form input[type="submit"]:hover{
+    background-color: #fff;
+}
+
+.Onboarding form input[type="submit"]:active{
+    background-color: #40ffd9;
+}
+
+.Onboarding form .photo-container img{
+    width:100%;
+}
+
+
+
+/* ================Dashboard================ */
+
+.dashboard{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard .swipe-container{
+    width:70%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+.swipe {
+    position: absolute;
+  }
+  
+
+.dashboard .card-container {
+    width: 400px;
+    height: 550px;
+  }
+  
+  .card {
+    position: relative;
+    background-color: #fff;
+    width:400px;
+    height:550px;
+    box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.20);
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .cardContent {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* .swipe:last-of-type {
+  
+  } */
+  
+  .card h3 {
+    position: absolute;
+    bottom: 0;
+    margin: 10px;
+    color: #fff;
+  }
+
+  .dashboard .swipe-info{
+    position: absolute;
+    bottom:0;
+    padding:10px;
+  }
+
+  /* ==========Chat Container============== */
+  .chat-container{
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.05) 0px 6px 24px 0px, rgba(0,0,0,0.08) 0px 0px 0px 1px;
+    width: 30%;
+    text-align: left;
+    /* padding-left: 5px; */
+    z-index: 1;
+  }
+
+  .chat-container .chat-container-header{
+    background: linear-gradient(45deg, #30b6fe, #40ffd9);
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .chat-container .option{
+    border:none;
+    background-color:#fff;
+    border-bottom: solid 4px #30b6fe;
+    font-size: 20px;
+    margin:2px;
+    padding: 10px;
+  }
+
+  .chat-container .option:disabled{
+    border-bottom: solid 4px #717172;
+  }
+  .chat-container .logout-icon,
+  .chat-container .profile{
+    padding:20px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+  }
+
+  .img-container{
+    height:30px;
+    width: 30px;
+    border-radius: 15px;
+    overflow:hidden;
+    margin:10px;
+  }
+  .img-container .img{
+    width: 100%;
+  }
+
+  /* ==========Chat display============ */
+
+  .chat-display{
+    padding:20px;
+    height:60vh;
+    overflow-y:auto;
+  }
+
+  .chat-input{
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+  }

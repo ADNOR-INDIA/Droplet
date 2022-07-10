@@ -19,7 +19,7 @@ const Home = ()=>{
         <div className="overlay">
         <Navbar authToken={authToken} setShowModal={setShowModal} showModal={showModal} setIsSignUp={setIsSignUp}/>
         <div className="home">
-            <h1 className="primary-title">Share Love</h1>
+            <h1 className="primary-title">Share Smiles, Spread Love</h1>
             <button className="primary-button" onClick={handleClick}>
                 {authToken ? "signout":"Create Account"}
             </button>
