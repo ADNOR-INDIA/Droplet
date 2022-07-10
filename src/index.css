@@ -18,7 +18,7 @@ html, body{
     padding: 12px 30px;
     border-radius: 30px;
     border:none;
-    background: linear-gradient(45deg, #30b6fe, #40ffd9);
+    background: linear-gradient(45deg, #ff4949, #ff834f);
 }
 .primary-title{
     font-size: 50px;
@@ -26,7 +26,7 @@ html, body{
 }
 
 .primary-button:hover{
-    background: linear-gradient(260deg, #30b6fe, #40ffd9);
+    background: linear-gradient(260deg,  #ff4949, #ff834f);
 }
 
 .secondary-button{
@@ -43,7 +43,7 @@ html, body{
 
 .secondary-button:hover{
     color:#4e4e50;
-    background:linear-gradient(45deg, #30b6fe, #40ffd9);
+    background:linear-gradient(45deg,  #ff4949, #ff834f);
 }
 
 /*=============== Styling for Navbar======================= */
@@ -54,13 +54,14 @@ nav{
 }
 
 nav .nav-button{
-    color:#30b6fe;
+    color:#ff4949;
     background-color: #fff;
     font-size: 20px;
     padding: 10px 20px;
     border-radius: 10px;
     border:none;
     margin: 10px;
+    height: 50px;
 }
 
 nav .nav-button:disabled{
@@ -69,12 +70,13 @@ nav .nav-button:disabled{
 }
 
 nav .logo-container{
-    width:150px;
-    margin: 15px;
+    width:290px;
+    margin-left: 15px;
+    margin-top: 15px;
 }
 
 nav .logo-container .logo{
-    height: 40px;
+    height: 83px;
     width: 100%;
 }
 
@@ -84,11 +86,23 @@ nav .logo-container .logo{
     width:100vw;
     height:100vw;
     position:fixed;
+    
     background: linear-gradient(
         to bottom,
         #636f76,
         #dde7e5
-    )
+    );
+    background-image: url('background6.jpg');
+    background-repeat:no-repeat;
+    background-size:contain;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    background-position:center;
+    width: 100%;
+    height: 100%;
+    
 }
 
 .home{
@@ -183,7 +197,7 @@ nav .logo-container .logo{
     display: none;
 }
 .Onboarding form input[type="radio"]:checked+label{
-    border: solid 2px #30b6fe;
+    border: solid 2px #ff4949;
 }
 
 .Onboarding form input[type="submit"]:hover{
@@ -191,7 +205,7 @@ nav .logo-container .logo{
 }
 
 .Onboarding form input[type="submit"]:active{
-    background-color: #40ffd9;
+    background-color: #ff834f;
 }
 
 .Onboarding form .photo-container img{
@@ -269,7 +283,7 @@ nav .logo-container .logo{
   }
 
   .chat-container .chat-container-header{
-    background: linear-gradient(45deg, #30b6fe, #40ffd9);
+    background: linear-gradient(45deg, #ff4949, #ff834f);
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -279,7 +293,7 @@ nav .logo-container .logo{
   .chat-container .option{
     border:none;
     background-color:#fff;
-    border-bottom: solid 4px #30b6fe;
+    border-bottom: solid 4px #ff4949;
     font-size: 20px;
     margin:2px;
     padding: 10px;
