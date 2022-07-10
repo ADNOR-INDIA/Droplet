@@ -1,22 +1,28 @@
 import React, {useState} from "react"
 import Navbar from "./Navbar"
+import {useCookies} from 'react-cookie'
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const Onboarding = ()=>{
-const [formData, setFormData] = useState({
-    user_id:"",
-    first_name:'',
-    last_name:'',
-    dob_day:'',
-    dob_month:'',
-    dob_year:'',
-    show_gender:false,
-    gender_identity:'',
-    gender_interest:'',
-    email:'',
-    url: '',
-    about:'',
-    matches:[]
-})
+
+
+    let navigate = useNavigate()
+    const [cookies, setCookie, removeCookie] = useCookies(['user'])
+    const [formData, setFormData] = useState({
+        user_id: cookies.UserId,
+        first_name:'',
+        last_name:'',
+        dob_day:'',
+        dob_month:'',
+        dob_year:'',
+        show_gender:false,
+        gender_identity:'',
+        gender_interest:'',
+        url: '',
+        about:'',
+        matches:[]
+    })
     const handleChange=(e)=>{
         //console.log("e", e)
         const value = e.target.type=== 'checkbox' ? e.target.checked:e.target.value 
@@ -27,8 +33,19 @@ const [formData, setFormData] = useState({
             ...prevState, [name]:value
          }))
     }
-    const handleSubmit=()=>{
-        console.log("submit")
+    const handleSubmit=async(e)=>{
+        //console.log("submit")
+        e.preventDefault()
+        try{
+            const response = await axios.put('http://localhost:5000/user', {formData})
+            const success = response.status===200
+            if(success){
+                navigate('/dashboard')
+            }
+        }
+        catch(error){
+            console.log(error)
+        }
     }
 
 
@@ -94,7 +111,7 @@ const [formData, setFormData] = useState({
                         <input type="url" name="url" id="url" onChange={handleChange} required={true} />
                         <div className="photo-container">
                             {/* image url for testing: https://i.imgur.com/oPj4A8u.jpg */}
-                            <img src={formData.url} alt="profile pic review"/>
+                            {formData.url&&<img src={formData.url} alt="profile pic review"/>}
                         </div>
                     </section>
 

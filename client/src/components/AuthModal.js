@@ -28,15 +28,19 @@ const AuthModal = ({setShowModal, isSignUp} )=>{
             // console.log('make a post request to our database')
             // Making a post request to our database, where we are passing email and password only.
             //console.log('posting', email, password)
-            const response = await axios.post('http://localhost:5000/signup', {email, password})
+            const response = await axios.post(`http://localhost:5000/${isSignUp?'signup':'login'}`, {email, password})
 
-            setCookie('Email', response.data.email)
-            setCookie('UserId', response.data.userId)
+            // setCookie('Email', response.data.email)
+            // setCookie('UserId', response.data.userId)
             setCookie('AuthToken', response.data.token)
-
+            setCookie('UserId', response.data.userId)
+            
             const success = response.status===201
-            if(success){
+            if(success&&isSignUp){
                 navigate('/onboarding')
+            }
+            if(success&&!isSignUp){
+                navigate('/dashboard')
             }
         }
         catch(error){
