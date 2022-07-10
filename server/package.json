@@ -1,0 +1,31 @@
+{
+  "name": "droplet-server",
+  "version": "1.0.0",
+  "description": "backend of the application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:backend": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ADNOR-INDIA/droplet.git"
+  },
+  "author": "Abhay Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ADNOR-INDIA/droplet/issues"
+  },
+  "homepage": "https://github.com/ADNOR-INDIA/droplet#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.4",
+    "nodemon": "^2.0.19",
+    "uuid": "^8.3.2"
+  }
+}
