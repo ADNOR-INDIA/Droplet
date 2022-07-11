@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import {useCookies} from 'react-cookie'
 import {useNavigate} from 'react-router-dom'
+
 const ChatHeader = ({user})=>{
 
     let navigate = useNavigate()
@@ -10,6 +11,7 @@ const ChatHeader = ({user})=>{
         removeCookie('UserId', cookies.UserId)
         removeCookie('AuthToken', cookies.AuthToken);
         navigate('/')
+        window.location.reload()
     }
 
     return (
@@ -20,7 +22,7 @@ const ChatHeader = ({user})=>{
                 </div>
                 <h3>{user.first_name} {user.last_name}</h3>
             </div>
-            <i className="logout-icon" onClick={Logout}>logout</i>
+            <i className="logout-icon" onClick={Logout}>⇦</i>
         </div>
     )
 }

@@ -6,7 +6,7 @@ import {useCookies} from 'react-cookie'
 
 const AuthModal = ({setShowModal, isSignUp} )=>{
 
-    const navigate = useNavigate()
+    let navigate = useNavigate()
 
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)

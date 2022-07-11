@@ -1,19 +1,30 @@
 import React, {useState} from "react"
 import Navbar from "./Navbar"
 import AuthModal from './AuthModal.js'
+import { useCookies } from "react-cookie"
 
 
 //import styles from "../index.css"
 const Home = ()=>{
-
-    const authToken = false
     const [showModal, setShowModal] = useState(false)
     const [isSignUp, setIsSignUp] = useState(true);
+    const [cookies, setCookie, removeCookie] = useCookies(['user'])
+
+    const authToken = cookies.AuthToken
+
     const handleClick=()=>{
+        if(authToken){
+            removeCookie('UserId', cookies.UserId)
+            removeCookie('AuthToken', cookies.AuthToken)
+            window.location.reload()
+            return
+        }
         console.log("button is clicked")
         setShowModal(true)
         setIsSignUp(true)
     }
+
+  
     return(
         <>
         <div className="overlay">
