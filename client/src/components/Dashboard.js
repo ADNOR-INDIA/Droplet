@@ -6,19 +6,19 @@ import axios from 'axios'
 
 const Dashboard = () => {
 
-
   const [user, setUser] = useState(null)
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
   const [genderedUsers, setGenderedUsers] = useState(null)
   const [lastDirection, setLastDirection] = useState();
 
   const userId = cookies.UserId
-  let loggedUser = null
+
+  // let loggedUser = null
   const getUser = async()=>{
     try{
       const response = await axios.get('http://localhost:5000/user', {params:{userId}})
       setUser(response.data)
-      loggedUser = response.data
+      // loggedUser = response.data
     }
     catch(error){
       console.log(error)
@@ -28,7 +28,7 @@ const Dashboard = () => {
   const getGenderedUsers = async()=>{
     try{
       const response = await axios.get('http://localhost:5000/gendered-users', {
-        params:{gender:loggedUser?.gender_interest}
+        params:{gender:user?.gender_interest}
       })
       setGenderedUsers(response.data)
     }
@@ -46,39 +46,14 @@ const Dashboard = () => {
     if(user){
       getGenderedUsers()
     }
-  }, [])
+  }, [user])
  
   //console.log('user', user)
-  console.log('gendered-users ', genderedUsers)
+  //console.log('gendered-users ', genderedUsers)
 
-  // const db = [
-  //   {
-  //     name: "Richard Hendricks",
-  //     url: "https://imgur.com/MWAcQRM.jpg",
-  //   },
-  //   {
-  //     name: "Erlich Bachman",
-  //     url: "https://imgur.com/H07Fxdh.jpg",
-  //   },
-  //   {
-  //     name: "Monica Hall",
-  //     url: "https://imgur.com/OckVkRo.jpg",
-  //   },
-  //   {
-  //     name: "Jared Dunn",
-  //     url: "https://i.imgur.com/oPj4A8u.jpg",
-  //   },
-  //   {
-  //     name: "Dinesh Chugtai",
-  //     url: "https://imgur.com/Lnt9K7l.jpg",
-  //   },
-  // ];
-
-  // const characters = db;
-
-  const updatedMatches=async(matchedUserId)=>{
+  const updateMatches=async(matchedUserId)=>{
     try{
-      await axios.put('httlp://localhost:5000/addmatch', {
+      await axios.put('http://localhost:5000/addmatch', {
         userId,
         matchedUserId
       })
@@ -93,7 +68,7 @@ const Dashboard = () => {
     // console.log("removing: " + nameToDelete);
     
     if(direction==='right'){
-      updatedMatches(swipedUserId)
+      updateMatches(swipedUserId)
     }
     setLastDirection(direction);
   };
@@ -109,10 +84,12 @@ const Dashboard = () => {
 
   return (
     <>
-    {user&&<div className="dashboard">
+    {user&&
+    <div className="dashboard">
       <ChatContainer user ={user}/>
       <div className="swipe-container">
         <div className="card-container">
+          
           {filteredGenderedUsers?.map((genderedUser) => 
             <TinderCard
               className="swipe"

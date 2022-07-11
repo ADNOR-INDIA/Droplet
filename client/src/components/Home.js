@@ -19,7 +19,7 @@ const Home = ()=>{
             window.location.reload()
             return
         }
-        console.log("button is clicked")
+        //console.log("button is clicked")
         setShowModal(true)
         setIsSignUp(true)
     }
@@ -28,7 +28,7 @@ const Home = ()=>{
     return(
         <>
         <div className="overlay">
-        <Navbar authToken={authToken} setShowModal={setShowModal} showModal={showModal} setIsSignUp={setIsSignUp}/>
+        <Navbar authToken={authToken} minimal={false} setShowModal={setShowModal} showModal={showModal} setIsSignUp={setIsSignUp}/>
         <div className="home">
             <h1 className="primary-title">Share Smiles, Spread Love</h1>
             <button className="primary-button" onClick={handleClick}>

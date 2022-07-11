@@ -8,7 +8,8 @@ const MatchesDisplay=({matches, setClickedUser})=>{
     const [cookies, setCookie, removeCookie] = useCookies(null)
 
     const matchedUserIds = matches.map(({user_id})=>user_id)
-    const userId = cookies.userId
+    const userId = cookies.userId;
+
     const getMatches = async()=>{
         try{
             const response = await axios.get('http://localhost:5000/users', {
@@ -25,11 +26,16 @@ const MatchesDisplay=({matches, setClickedUser})=>{
         getMatches()
     }, [matches])
 
-    console.log(matchedProfiles)
+    const filteredMatchedProfiles = matchedProfiles?.filter(
+        (matchedProfile) =>
+          matchedProfile.matches.filter((profile) => profile.user_id == userId)
+            .length > 0
+      );
+    //console.log(matchedProfiles)
     return(
         <div className="matches-display">
-            {matchedProfiles?.map((match)=>(
-                <div key={match.user_id} className="match-card" onClick={()=>setClickedUser(match)}>
+            {filteredMatchedProfiles?.map((match, _index)=>(
+                <div key={_index} className="match-card" onClick={()=>setClickedUser(match)}>
                     <div className="img-container">
                         <img src={match?.url} alt={match?.first_name+ ' profile'}/>
                     </div>

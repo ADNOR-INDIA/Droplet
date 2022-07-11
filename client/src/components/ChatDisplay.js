@@ -41,7 +41,7 @@ const ChatDisplay=({user, clickedUser})=>{
 
     const messages=[]
 
-    console.log('usersMessages'. usersMessages)
+    //console.log('usersMessages'. usersMessages)
 
     usersMessages?.forEach(message=>{
         const formattedMessage={}
@@ -49,7 +49,7 @@ const ChatDisplay=({user, clickedUser})=>{
         formattedMessage['img']= user?.url
         formattedMessage['message'] = message.message
         formattedMessage['timestamp'] = message.timestamp
-        message.push(formattedMessage)
+        messages.push(formattedMessage)
     })
 
     clickedUsersMessages?.forEach(message=>{
@@ -58,13 +58,13 @@ const ChatDisplay=({user, clickedUser})=>{
         formattedMessage['img']= clickedUser?.url
         formattedMessage['message'] = message.message
         formattedMessage['timestamp'] = message.timestamp
-        message.push(formattedMessage)
+        messages.push(formattedMessage)
     })
 
     const descendingOrderMessages = messages?.sort((a, b)=>a.timestamp-b.timestamp.localComapare(b.timestamp))
 
-    console.log('usersMessages', usersMessages)
-    console.log('formattedMessages', messages)
+    // console.log('usersMessages', usersMessages)
+    //console.log('formattedMessages', messages)
     // console.log(usersMessages)
 
     return( 

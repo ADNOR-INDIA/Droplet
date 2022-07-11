@@ -1,16 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 import {useCookies} from 'react-cookie'
-import {useNavigate} from 'react-router-dom'
+
 
 const ChatHeader = ({user})=>{
-
-    let navigate = useNavigate()
     const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
     const Logout=()=>{
         removeCookie('UserId', cookies.UserId)
-        removeCookie('AuthToken', cookies.AuthToken);
-        navigate('/')
+        removeCookie('AuthToken', cookies.AuthToken)
         window.location.reload()
     }
 
@@ -20,9 +17,9 @@ const ChatHeader = ({user})=>{
                 <div className="img-container">
                     <img src={user.url} alt={"photos of "+ user.first_name}/>
                 </div>
-                <h3>{user.first_name} {user.last_name}</h3>
+                <h3>{user.first_name}</h3>
             </div>
-            <i className="logout-icon" onClick={Logout}>⇦</i>
+            <i className="log-out-icon" onClick={Logout}>⇦</i>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../logo.png'
 //import styles from '../index.css'
 
-const Navbar = ({authToken, setShowModal, showModal, setIsSignUp})=>{
+const Navbar = ({authToken, minimal, setShowModal, showModal, setIsSignUp})=>{
 
     const handleClick=()=>{
         setIsSignUp(false)
@@ -12,9 +12,9 @@ const Navbar = ({authToken, setShowModal, showModal, setIsSignUp})=>{
     return(
         <nav>
             <div className="logo-container">
-                <img className="logo" src={logo} alt=""/>
+                <img className="logo" src={minimal?logo:logo} alt="logo"/>
             </div>
-            {!authToken && <button className='nav-button' onClick={handleClick} disabled={showModal}>Log in</button>}
+            {!authToken &&!minimal&& <button className='nav-button' onClick={handleClick} disabled={showModal}>Log in</button>}
         </nav>
     )
 }

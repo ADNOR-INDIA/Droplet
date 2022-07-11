@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom"
 
 const Onboarding = ()=>{
 
-
-    let navigate = useNavigate()
     const [cookies, setCookie, removeCookie] = useCookies(['user'])
     const [formData, setFormData] = useState({
         user_id: cookies.UserId,
@@ -23,14 +21,18 @@ const Onboarding = ()=>{
         about:'',
         matches:[]
     })
+
+    let navigate = useNavigate()
+
     const handleChange=(e)=>{
         //console.log("e", e)
-        const value = e.target.type=== 'checkbox' ? e.target.checked:e.target.value 
+        const value = e.target.type=== "checkbox" ? e.target.checked:e.target.value 
         const name = e.target.name
          //console.log('value: '+value ,'name: '+name )
 
          setFormData((prevState)=>({
-            ...prevState, [name]:value
+            ...prevState,
+             [name]:value
          }))
     }
     const handleSubmit=async(e)=>{
@@ -50,10 +52,11 @@ const Onboarding = ()=>{
 
 
     return(
-        <div className="page">
-            <Navbar setShowModal={()=>{}}
+        <>
+            <Navbar 
+                    minimal = {true}
+                    setShowModal={()=>{}}
                     showModal={false}
-                    authToken={true}
              />
              <div className="Onboarding">
                 <h2>Create Account</h2>
@@ -107,7 +110,7 @@ const Onboarding = ()=>{
                     </section>
 
                     <section>
-                        <label htmlFor="about">profile photo</label>
+                        <label htmlFor="url">profile photo</label>
                         <input type="url" name="url" id="url" onChange={handleChange} required={true} />
                         <div className="photo-container">
                             {/* image url for testing: https://i.imgur.com/oPj4A8u.jpg */}
@@ -118,7 +121,7 @@ const Onboarding = ()=>{
                 </form>
 
              </div>
-        </div>
+        </>
     )
 }
 
