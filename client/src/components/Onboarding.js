@@ -50,7 +50,7 @@ const Onboarding = ()=>{
 
 
     return(
-        <>
+        <div className="page">
             <Navbar setShowModal={()=>{}}
                     showModal={false}
                     authToken={true}
@@ -118,7 +118,7 @@ const Onboarding = ()=>{
                 </form>
 
              </div>
-        </>
+        </div>
     )
 }
 

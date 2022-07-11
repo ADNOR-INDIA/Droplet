@@ -141,6 +141,18 @@ nav .logo-container .logo{
 
 
 /* =========Onboarding Page=============== */
+.page{
+    background-image: url('background6.jpg');
+    background-repeat:no-repeat;
+    background-size:contain;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    background-position:center;
+    width: 100%;
+    height: 100%;
+}
 .Onboarding form{
     display: flex;
     justify-content: center;
