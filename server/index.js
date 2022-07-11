@@ -15,7 +15,7 @@ app.use(cors({origin:'*'}))
 app.use(express.json())
 
 const PORT = 5000
-// using the method get, 
+// using the method get, used for getting server /database from server. 
 app.get('/', (req, res)=>{
     // .json() is helping to send the response to localhost:5000/
     res.json('hello!')
@@ -56,7 +56,7 @@ app.post('/signup', async(req, res)=>{
         const insertedUser = await users.insertOne(data)
 
         const token = jwt.sign(insertedUser, sanitizedEmail, {expiresIn:60*24})
-        res.sendStatus(201).json({token, userId:generatedId})
+        res.status(201).json({token, userId:generatedId})
     }
     catch(error){
         console.log(error)
@@ -88,6 +88,26 @@ app.post('/login', async(req, res)=>{
     }
 })
 
+// getting a user data from database for chat-container in dashboard purpose.
+app.get('/user', async(req, res)=>{
+    const client = new MongoClient(uri)
+    const userId = req.query.userId
+
+    try{
+        await client.connect()
+        const database = client.db('app-data')
+        const users = database.collection('users')
+
+        const query = {user_id:userId}
+        const user = await users.findOne(query)
+        res.send(user)
+    }
+    finally{
+        await client.close()
+    }
+})
+
+
 app.get('/users', async(req, res)=>{
     const client = new MongoClient(uri)
     try{
@@ -103,7 +123,7 @@ app.get('/users', async(req, res)=>{
     }
 })
 
-
+// updating info in the databse of a user once it has created the account(info of onboarding page)
 app.put('/user', async(req,res)=>{
     const client = new MongoClient(uri)
     const formData = req.body.formData
