@@ -158,6 +158,7 @@ app.put('/addmatch', async(req, res)=>{
 app.get('/users', async(req, res)=>{
     const client = new MongoClient(uri)
     const userIds = JSON.parse(req.query.userIds)
+    
     //console.log("these are user ids "+userIds)
 
     try{
@@ -175,6 +176,7 @@ app.get('/users', async(req, res)=>{
                 }
             }
         ]
+        console.log('userids: '+userIds)
         const foundUsers = await users.aggregate(pipeline).toArray()
         // console.log("found users " +foundUsers)
         res.json(foundUsers)
@@ -241,7 +243,7 @@ app.put('/user', async(req,res)=>{
 
 app.post('/message', async(req,res)=>{
     const client = new MongoClient(uri)
-    const message = reqbody.message
+    const message = req.body.message
 
     try{
         await client.connect()
