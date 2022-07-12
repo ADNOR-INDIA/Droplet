@@ -8,13 +8,14 @@ const MatchesDisplay=({matches, setClickedUser})=>{
     const [cookies, setCookie, removeCookie] = useCookies(null)
 
     const matchedUserIds = matches.map(({user_id})=>user_id)
-    const userId = cookies.userId;
-
+    const userId = cookies.UserId;
+    console.log("what it doees: " +JSON.stringify(matchedUserIds))
     const getMatches = async()=>{
         try{
             const response = await axios.get('http://localhost:5000/users', {
-                params:{userIds: JSON.stringify(matchedUserIds)},
+                params:{userIds: JSON.stringify(matchedUserIds)}
             });
+            
             setMatchedProfiles(response.data)
         }
         catch(error){
@@ -28,8 +29,7 @@ const MatchesDisplay=({matches, setClickedUser})=>{
 
     const filteredMatchedProfiles = matchedProfiles?.filter(
         (matchedProfile) =>
-          matchedProfile.matches.filter((profile) => profile.user_id == userId)
-            .length > 0
+          matchedProfile.matches.filter((profile) => profile.user_id === userId).length > 0
       );
     //console.log(matchedProfiles)
     return(
