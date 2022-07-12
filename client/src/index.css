@@ -40,8 +40,11 @@ html, body{
     border: solid 2px #717172;
     margin: 6px;
 }
+.secondary-button[type="submit"]:hover{
+    background-color: #e0ebf2;
+}
 
-.secondary-button:hover{
+.secondary-button[type="submit"]:active{
     color:#4e4e50;
     background:linear-gradient(45deg,  #ff4949, #ff834f);
 }
@@ -329,7 +332,7 @@ nav .logo-container .logo{
     overflow:hidden;
     margin:10px;
   }
-  .img-container .img{
+  .img-container img{
     width: 100%;
   }
 

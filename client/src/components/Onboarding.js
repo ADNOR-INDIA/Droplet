@@ -52,7 +52,7 @@ const Onboarding = ()=>{
 
 
     return(
-        <>
+        <div className="page">
             <Navbar 
                     minimal = {true}
                     setShowModal={()=>{}}
@@ -121,7 +121,7 @@ const Onboarding = ()=>{
                 </form>
 
              </div>
-        </>
+        </div>
     )
 }
 

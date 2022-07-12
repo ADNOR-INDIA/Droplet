@@ -23,7 +23,7 @@ const ChatDisplay=({user, clickedUser})=>{
 
     const getClickedUsersMessages = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/messages', {
+            const response = await axios.get('http://localhost:5000/messages', {
                 params: { userId: clickedUserId , correspondingUserId: userId}
             })
             setClickedUsersMessages(response.data)
@@ -61,7 +61,7 @@ const ChatDisplay=({user, clickedUser})=>{
         messages.push(formattedMessage)
     })
 
-    const descendingOrderMessages = messages?.sort((a, b)=>a.timestamp.localeComapare(b.timestamp))
+    const descendingOrderMessages = messages?.sort((a, b)=>a.timestamp.localeCompare(b.timestamp))
 
     // console.log('usersMessages', usersMessages)
     //console.log('formattedMessages', messages)
